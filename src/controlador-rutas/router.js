@@ -1,6 +1,5 @@
 import { components } from '../vistas/index.js';
-import { getOrders } from '../controlador-firebase/controlador-fb.js';
-import { templatePedidos } from './funciones-cocinero.js';
+import { viewPictures } from '../controlador-rutas/funciones.js'
 
 
 
@@ -17,6 +16,7 @@ export const changeTmp = (hash) => {
         break;
         case '#/cocinero': 
         sectionMain.appendChild(components.cocinero());
+        viewPictures()
         break;
         default:
         sectionMain.appendChild(components.different());

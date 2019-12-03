@@ -74,11 +74,19 @@ export default () => {
           No, que nunca comience,
           Un mundo no es suficiente
           Para dos como tú y yo.</p>
+          <button class="btnViewJson">Fetch</button>
 </section>`;
 
   const divElement = document.createElement('section');
   divElement.className = "body";
   divElement.innerHTML = dashboard;
+
+// const unsplash = new Unsplash({ accessKey: "{376cd19cc454ddbb8cb9a593f03181cc4fdc0d7b9c1f7b6c51209d261f79901a}" });
+//   unsplash.photos.listPhotos(1, 20, "latest")
+//   .then(toJson)
+//   .then(json => {
+//     console.log(json)
+//   });
   return divElement;
 };
 
