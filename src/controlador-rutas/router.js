@@ -1,7 +1,6 @@
 import { components } from '../vistas/index.js';
-import { viewPictures } from '../controlador-rutas/funciones.js'
-
-
+// import { window } from '../vistas/home.js'
+ import {getData} from '../vistas/home.js'
 
 
 export const changeTmp = (hash) => {
@@ -13,10 +12,11 @@ export const changeTmp = (hash) => {
         break;
         case '#/home': 
         sectionMain.appendChild(components.home());
+        getData();
         break;
         case '#/cocinero': 
         sectionMain.appendChild(components.cocinero());
-        viewPictures()
+        // getData()
         break;
         default:
         sectionMain.appendChild(components.different());

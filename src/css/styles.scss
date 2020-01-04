@@ -1,5 +1,5 @@
 $fontFamily : -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans","Droid Sans", "Helvetica Neue", sans-serif;
-@import '../css/variables.scss';
+$colorIcon : #8e8e8e;
 *{
     margin: 0;
     padding: 0;
@@ -8,31 +8,32 @@ header{
     width: 100%;
     overflow: hidden;
     background: #fff;
-    margin-bottom: 8px;
+    border-bottom: 2px solid #efefef;
+    height: 62px;
     .logo{
         left: 20%;
         width: 30px;
         margin-left: 25px;
-        margin-right: 19px;
+        margin-right: 22px;
     }
     input{
-        width: 43rem;
+        min-width: 44rem;
         background: #f2f2f2;
         border: none;
         outline: none;
-        height: 38px;
-        margin-top: 15px;
+        height: 40px;
+        margin-top: 10px;
         border-radius: 8px;
         padding-left: 40px;
         font-family:$fontFamily;
     }
     nav{
-        margin-top: 15px;       
+        margin-top: 10px; 
+        display: flex;           
    }
     a{
         text-decoration:none;
-        margin: 10px;
-        color: #8e8e8e;
+        color: $colorIcon;
         font-weight: 700;
         font-size: 16px;
         font-family:$fontFamily;
@@ -44,23 +45,97 @@ header{
         font-weight: 700;
         font-size: 16px;
         font-family:$fontFamily;
-    }
-    .inputWithIcon{
+    }    .inputWithIcon{
         position: relative;
-    }
+    } 
     i{
         position: absolute;
-        color: red;
-        background-color: aqua;
-        width: 30px;
+        color:$colorIcon;
+        margin-left: 15px;
+        top: 26px;
+    }
+    @mixin navbar ($width, $height, ) {
+        width: $width;
+        height: $height;
+        text-align: center;
+        margin: 10px;
+    }
+    .divInicio{
+        @include navbar(60px,40px);
+    }
+    .divHover{
+        margin: 10px;
+    }
+    .divIcons{
+        display:flex;
+        margin-left: 35px;
+    }
+    .picture{
+        @include navbar(27px,27px );
+        margin: 0;
+        margin-right: 5px;
+    }
+    .divUsuario{
+        display: flex;
+        margin: 10px;
+    } 
+    .line{
+        margin: 10px;
+        border-left: 2px solid #efefef;
         height: 30px;
+        width: 24px;
     }
 }
 .wrapper{
     display: flex;
-    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
 }
 .icons{
-    widows: 22px;
+    width: 22px;
     height: 22px;
 }
+//container de imagenes
+.grid{
+    // --col
+    width: 200%;
+    margin: 20px auto;
+    max-width: 1200px;
+    columns:5;
+    column-gap: 5px;
+    // --align-content: center;
+    // --text-align: center;
+    // border: 5px solid #333;
+    // --display: grid;
+    //
+    // --grid-template-columns: repeat(5,1fr) ;
+    // --grid-auto-flow: minmax(150px,auto);
+    // grid-template-rows: 50px ;
+    //-- grid-gap: 5px;
+    // --columns:5;
+    // --gap:2rem;
+    // $columns:5;
+    // display: grid;
+    // grid-template-columns:repeat(var(--columns) );
+    // grid-gap: var(--gap);
+    // @for $i from 1 through $columns {
+    // &.columns-#{$i}{
+    //     --columns:#{$i};
+    // }
+    // }
+
+     .imagen{
+     width: 100%;
+     display: block  ;
+     border-radius: 20px;
+     cursor: pointer;
+    }
+
+    div{
+        display: block;
+        padding: 10px;
+    }
+}
+  
