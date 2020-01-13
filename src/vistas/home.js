@@ -46,6 +46,7 @@ export default () => {
 
 };
 export const getData = () => {
+  
 const containerPrincipal = document.getElementById('dashboardPrincipal');
     containerPrincipal.innerHTML = '';
     // const apiKey = '284b8b9621a1a9d3a6f8c97ba701e188cb73c4c63da3af950a726c3010dec1c9';
@@ -53,8 +54,7 @@ const containerPrincipal = document.getElementById('dashboardPrincipal');
     const urlApi = 'https://api.unsplash.com/search/photos?query=quotes&per_page=20&page=1&client_id=284b8b9621a1a9d3a6f8c97ba701e188cb73c4c63da3af950a726c3010dec1c9';
     fetch(urlApi)
       .then(res => res.json())
-      .then(data => 
-        // console.log(data)
+      .then(data => {
         data.results.forEach(element => {
           const url = element.urls.regular;
           const user = element.user.name;
@@ -62,34 +62,38 @@ const containerPrincipal = document.getElementById('dashboardPrincipal');
           console.log(id)
           containerPrincipal.appendChild(templateHome(url, user,id))
          
-        })
+        })}
+       
         )
       .catch(e => console.log(e));
 }
-
+let page = 2;
 window.onscroll = () => {
-  let page = 2;
+
+ 
   if((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight){
     // console.log('hola')
      const containerPrincipal = document.getElementById('dashboardPrincipal');
      const urlApi = `https://api.unsplash.com/search/photos?query=quotes&per_page=20&page=${page}&client_id=284b8b9621a1a9d3a6f8c97ba701e188cb73c4c63da3af950a726c3010dec1c9`;
- 
-    console.log(page)
+
    
     fetch(urlApi)
       .then(res => res.json())
       .then(data => 
-        
-      data.results.forEach(element => {
-        const url = element.urls.regular;
-        const user = element.user.name; 
-
-        containerPrincipal.appendChild(templateHome(url, user))
-       
-     page ++
-     console.log(page)
-
-      }))
+        {
+          data.results.forEach(element => {
+          const url = element.urls.regular;
+          const user = element.user.name; 
+  
+          containerPrincipal.appendChild(templateHome(url, user))
+         
+      
+  
+        })
+        page ++
+        console.log(page)
+      }
+      )
     .catch(e => console.log(e));
       
   }
